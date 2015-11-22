@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- meta for cordova security issues -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <meta charset="utf-8">
+    <!-- Google Icon Font -->
+    <link rel="stylesheet" type="text/css" href="css/icon.css">
+    <!-- Materialize CSS -->
+    <link rel="stylesheet" type="text/css" href="css/materialize.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <!-- App title -->
+    <title>Editor</title>
+</head>
+<body>
+    <nav>
+        <div class="nav-wrapper  blue-grey darken-3">
+            <a href="#" class="brand-logo center">Editor</a>
+        </div>
+    </nav>
+    <main>
+        <div class="row">
+            <form class="col s12">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <select  class="icons">
+                            <option value="" disabled selected>Selecciona un ícono</option>
+                            <option value="info_outline" data-icon="img/info_outline.PNG" class="left circle">Información</option>
+                            <option value="thumb_up" data-icon="img/thumb_up.PNG" class="left circle">Me gusta</option>
+                            <option value="thumb_down" data-icon="img/thumb_down.PNG" class="left circle">No me gusta</option>
+                            <option value="grade" data-icon="img/grade.PNG" class="left circle">Favorito</option>
+                            <option value="comment" data-icon="img/comment.PNG" class="left circle">Comentario</option>
+                            <option value="today" data-icon="img/today.PNG" class="left circle">Recordatorio</option>
+                            <option value="search" data-icon="img/search.PNG" class="left circle">Investigar</option>
+                            <option value="settings" data-icon="img/settings.PNG" class="left circle">Ajuste</option>
+                            <option value="navigation" data-icon="img/navigation.PNG" class="left circle">Indicación</option>
+                            <option value="code" data-icon="img/code.PNG" class="left circle">Código</option>
+                            <option value="location_on" data-icon="img/location_on.PNG" class="left circle">Localización</option>
+                        </select>
+                        <label>Selecciona un ícono</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="last_name" type="text" class="validate">
+                        <label for="last_name">Título de la nota</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea id="textarea1" class="materialize-textarea"></textarea>
+                        <label for="textarea1">Contenido de la nota</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s6">
+                        <button class="btn waves-effect waves-light green" type="submit" name="action">guardar
+                            <i class="material-icons right">send</i>
+                        </button>
+                    </div>
+                    <div class="col s6">
+                        <a class="waves-effect waves-light btn red">
+                            <i class="material-icons right">cloud</i>cancelar
+                        </a>
+                    </div>
+                </div>      
+            </form>
+        </div>
+    </main>
+</body>
+<!-- Cordova JS -->
+<script type="text/javascript" src="cordova.js"></script>
+<!-- jQuery JS-->
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<!-- Materialize JS --> 
+<script type="text/javascript" src="js/materialize.min.js"></script>
+<!-- Custom JS -->
+<script type="text/javascript" src="js/index.js"></script>
+</html>

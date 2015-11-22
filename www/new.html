@@ -19,41 +19,34 @@
 <body>
     <nav>
         <div class="nav-wrapper  blue-grey darken-3">
-            <a href="#" class="brand-logo center">Editor</a>
+            <a href="#" class="brand-logo center">Nueva nota</a>
         </div>
     </nav>
     <main>
         <div class="row">
-            <form class="col s12">
+            <form id="new_note" class="col s12">
                 <div class="row">
-                    <div class="input-field col s6">
-                        <select  class="icons">
-                            <option value="" disabled selected>Selecciona un ícono</option>
-                            <option value="info_outline" data-icon="img/info_outline.png" class="left circle">Información</option>
-                            <option value="thumb_up" data-icon="img/thumb_up.png" class="left circle">Me gusta</option>
-                            <option value="thumb_down" data-icon="img/thumb_down.png" class="left circle">No me gusta</option>
-                            <option value="grade" data-icon="img/grade.png" class="left circle">Favorito</option>
-                            <option value="comment" data-icon="img/comment.png" class="left circle">Comentario</option>
-                            <option value="today" data-icon="img/today.png" class="left circle">Recordatorio</option>
-                            <option value="search" data-icon="img/search.png" class="left circle">Investigar</option>
-                            <option value="settings" data-icon="img/settings.png" class="left circle">Ajuste</option>
-                            <option value="navigation" data-icon="img/navigation.png" class="left circle">Indicación</option>
-                            <option value="code" data-icon="img/code.png" class="left circle">Código</option>
-                            <option value="location_on" data-icon="img/location_on.png" class="left circle">Localización</option>
-                        </select>
-                        <label>Selecciona un ícono</label>
-                    </div>
-                    <div class="input-field col s6">
-                        <input id="last_name" type="text" class="validate">
-                        <label for="last_name">Título de la nota</label>
+                    <div class="input-field col s12">
+                        <input id="note_title" type="text" class="validate">
+                        <label for="note_title">Título de la nota</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <textarea id="textarea1" class="materialize-textarea"></textarea>
-                        <label for="textarea1">Contenido de la nota</label>
+                        <textarea id="note_content" rows="40" class="materialize-textarea"></textarea>
+                        <label for="note_content">Contenido de la nota</label>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col s6">
+                        <button class="btn waves-effect waves-light green darken-3" type="submit">
+                            guardar
+                        </button>
+                    </div>
+                    <div class="col s6">
+                        <a href="index.html" class="waves-effect waves-light btn red darken-3">cancelar</a>
+                    </div>
+                </div>      
             </form>
         </div>
     </main>
@@ -65,5 +58,6 @@
 <!-- Materialize JS --> 
 <script type="text/javascript" src="js/materialize.min.js"></script>
 <!-- Custom JS -->
-<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript" src="js/utils.js"></script>
+<script type="text/javascript" src="js/new.js"></script>
 </html>
