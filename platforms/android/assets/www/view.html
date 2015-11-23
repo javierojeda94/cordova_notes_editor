@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- meta for cordova security issues -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <meta charset="utf-8">
+    <!-- Google Icon Font -->
+    <link rel="stylesheet" type="text/css" href="css/icon.css">
+    <!-- Materialize CSS -->
+    <link rel="stylesheet" type="text/css" href="css/materialize.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <!-- App title -->
+    <title>Editor</title>
+</head>
+<body>
+    <nav>
+        <div class="nav-wrapper  blue-grey darken-3">
+            <a href="#" class="brand-logo center">Ver nota</a>
+        </div>
+    </nav>
+    <main>
+        <div class="row">
+            <form id="new_note" class="col s12">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input required id="note_title" type="text" class="validate">
+                        <label for="note_title">Título de la nota</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea required id="note_content" rows="40" class="materialize-textarea"></textarea>
+                        <label for="note_content">Contenido de la nota</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s6">
+                        <button class="btn waves-effect waves-light green darken-3" type="submit">
+                            guardar
+                        </button>
+                    </div>
+                    <div class="col s6">
+                        <a href="index.html" class="waves-effect waves-light btn red darken-3">cancelar</a>
+                    </div>
+                </div>      
+            </form>
+        </div>
+    </main>
+</body>
+<!-- Cordova JS -->
+<script type="text/javascript" src="cordova.js"></script>
+<!-- jQuery JS-->
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<!-- Materialize JS --> 
+<script type="text/javascript" src="js/materialize.min.js"></script>
+<!-- Custom JS -->
+<script type="text/javascript" src="js/utils.js"></script>
+<script type="text/javascript" src="js/view.js"></script>
+</html>
