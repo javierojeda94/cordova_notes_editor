@@ -19,7 +19,7 @@
 <body>
     <nav>
         <div class="nav-wrapper  blue-grey darken-3">
-            <a href="#" class="brand-logo center">Nueva nota</a>
+            <a href="#" class="brand-logo center">Ver nota</a>
         </div>
     </nav>
     <main>
@@ -27,13 +27,13 @@
             <form id="new_note" class="col s12">
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="note_title" type="text" class="validate">
+                        <input required id="note_title" type="text" class="validate">
                         <label for="note_title">Título de la nota</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <textarea id="note_content" rows="40" class="materialize-textarea"></textarea>
+                        <textarea required id="note_content" rows="40" class="materialize-textarea"></textarea>
                         <label for="note_content">Contenido de la nota</label>
                     </div>
                 </div>
