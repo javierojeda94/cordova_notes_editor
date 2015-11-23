@@ -43,7 +43,7 @@ function displayEntries(entries) {
 	var fileList = $(".collection");
 	for (var i = 0; i < entries.length; i++) {
 		var li = document.createElement('li');
-		li.innerText = entries[i].name;
+		li.innerText = entries[i].name.replace('.txt','');
 		li.className = "collection-item";
 		li.addEventListener('click',onNoteClick);
 		fileList.append(li);
@@ -77,13 +77,14 @@ function viewNote() {
 function removeNote(){
 	if(candidate_to_delete){
 		if(confirm("¿Desea borrar esta nota? " + last_clicked_note.html())){
-			filesystem.root.getFile('/MyNotes/' + last_clicked_note.html(), {}, function(fileEntry) {
+			filesystem.root.getFile('/MyNotes/' + last_clicked_note.html() + '.txt', {}, function(fileEntry) {
 				fileEntry.remove(function() {
 					alert("Nota eliminado");
 				}, errorHandler);
 			}, errorHandler);
 			last_clicked_note.remove();
 			last_clicked_note = null;
+			candidate_to_delete = false;
 		}
 	}
 	else{

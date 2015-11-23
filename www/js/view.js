@@ -1,5 +1,7 @@
 var queryString = new Array();
 
+var origin_title, origin_content;
+
 document.addEventListener('deviceready',onDeviceReady);
 
 function onDeviceReady(){
@@ -19,18 +21,55 @@ function onDeviceReady(){
 
 function showContent(fileName){
 	window.requestFileSystem(window.PERSISTENT, 1024, function(filesystem) {
-		filesystem.root.getFile(fileName+'.txt', {}, function(fileEntry) {
+		filesystem.root.getFile('/MyNotes/' + fileName + '.txt', {}, function(fileEntry) {
 			fileEntry.file(function(file) {
 				var reader = new FileReader();
 				reader.onloadend = function(e) {
 					var note_content = $("#note_content");
 					var note_title = $("#note_title");
-					note_title.value = fileName;
-					note_content.value = this.result;
+					note_title.focusin();
+					note_content.focusin();
+					note_title.val(fileName);
+					note_content.val(this.result);
+					origin_title = '/MyNotes/' + fileName + '.txt';
+					origin_content = this.result;
 				};
 				reader.readAsText(file);
 			}, errorHandler);
 		}, errorHandler);
 
 	});
+}
+
+$('#new_note').submit(function(e){
+	e.preventDefault();
+	var new_title = $("#note_title").val();
+	var new_content = $("#note_content").val();
+	saveChanges('/MyNotes/' + new_title + '.txt',new_content);
+});
+
+function saveChanges(title, content){
+	if(origin_title !== title || origin_content !== content){
+		window.requestFileSystem(window.PERSISTENT, 1024, function(filesystem) {
+			filesystem.root.getFile(origin_title, {}, function(fileEntry) {
+				fileEntry.moveTo(filesystem.root, title);		
+				filesystem.root.getFile(title, {}, function(fileEntry) {
+					fileEntry.createWriter(function(fileWriter) {
+						var fileParts = [content];
+						var contentBlob = new Blob(fileParts, {type : 'text/html'});    
+						fileWriter.write(contentBlob);
+						fileWriter.onwriteend = function(e) { 
+							alert("Cambios guardados!");
+							window.location.replace("index.html");
+						};
+						fileWriter.onerror = function(e) {
+							alert('¡Ocurrió un error y la nota no pudo ser guardada!');
+						};
+					}, errorHandler);		
+				}, errorHandler);
+			}, errorHandler);
+		});
+	}else{
+		window.location.replace("index.html");		
+	}
 }
